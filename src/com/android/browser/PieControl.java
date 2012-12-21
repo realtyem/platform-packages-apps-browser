@@ -25,6 +25,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 import android.webkit.WebView;
+//import android.webkit.BrowserWebView;
 import android.widget.BaseAdapter;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -52,6 +53,8 @@ public class PieControl implements PieMenu.PieController, OnClickListener {
     protected int mItemSize;
     protected TextView mTabsCount;
     private BaseUi mUi;
+    private PieItem mJumpTop;
+    private PieItem mJumpBottom;
     private PieItem mBack;
     private PieItem mForward;
     private PieItem mRefresh;
@@ -132,6 +135,8 @@ public class PieControl implements PieMenu.PieController, OnClickListener {
 
     protected void populateMenu() {
         mBack = makeItem(R.drawable.ic_back_holo_dark, 1);
+        mJumpTop = makeItem(R.drawable.ic_back_holo_dark, 1);
+        mJumpBottom = makeItem(R.drawable.ic_forward_holo_dark, 1);
         mUrl = makeItem(R.drawable.ic_web_holo_dark, 1);
         mBookmarks = makeItem(R.drawable.ic_bookmarks_holo_dark, 1);
         mHistory = makeItem(R.drawable.ic_history_holo_dark, 1);
@@ -161,36 +166,42 @@ public class PieControl implements PieMenu.PieController, OnClickListener {
         mShowTabs.setPieView(stack);
         setClickListener(this, mBack, mRefresh, mForward, mUrl, mFind, mInfo,
                 mShare, mBookmarks, mNewTab, mIncognito, mClose, mHistory,
-                mAddBookmark, mOptions, mRDS);
+                mAddBookmark, mOptions, mRDS, mJumpTop, mJumpBottom);
         if (!BrowserActivity.isTablet(mActivity)) {
             mShowTabs.getView().setOnClickListener(this);
         }
         // level 1
-        mPie.addItem(mOptions);
-        mOptions.addItem(mRDS);
-        mOptions.addItem(makeFiller());
-        mOptions.addItem(makeFiller());
-        mOptions.addItem(makeFiller());
+
         mPie.addItem(mBack);
         mBack.addItem(mRefresh);
         mBack.addItem(mForward);
         mBack.addItem(makeFiller());
         mBack.addItem(makeFiller());
+
         mPie.addItem(mUrl);
         mUrl.addItem(mFind);
+        mUrl.addItem(mRDS);
         mUrl.addItem(mShare);
-        mUrl.addItem(makeFiller());
-        mUrl.addItem(makeFiller());
+        mUrl.addItem(mOptions);
+
         mPie.addItem(mShowTabs);
-        mShowTabs.addItem(mClose);
+        mShowTabs.addItem(makeFiller());
         mShowTabs.addItem(mIncognito);
         mShowTabs.addItem(mNewTab);
         mShowTabs.addItem(makeFiller());
+
+        mPie.addItem(mClose);
+        mClose.addItem(makeFiller());
+        mClose.addItem(makeFiller());
+        mClose.addItem(mJumpTop);
+        mClose.addItem(mJumpBottom);
+
         mPie.addItem(mBookmarks);
         mBookmarks.addItem(makeFiller());
         mBookmarks.addItem(makeFiller());
         mBookmarks.addItem(mAddBookmark);
         mBookmarks.addItem(mHistory);
+
     }
 
     @Override
@@ -233,8 +244,27 @@ public class PieControl implements PieMenu.PieController, OnClickListener {
             mUiController.findOnPage();
         } else if (mRDS.getView() == v) {
             mUiController.toggleUserAgent();
-        } else if (mShowTabs.getView() == v) {
+        } 
+	else if (mShowTabs.getView() == v) 
+	{
             ((PhoneUi) mUi).showNavScreen();
+        }
+        else if (mJumpBottom.getView() == v)
+        {
+		web.pageDown(true);
+/*	        BrowserWebView web2 = (BrowserWebView) tab.getWebView();
+
+                if(web2.getWidth() < web2.computeVerticalScrollRange())
+                {
+                        tab.getWebView().flingScroll(0, 0xf4240);
+                        tab.getWebView().computeScroll();
+                }
+*/
+        }
+
+	else if (mJumpTop.getView() == v) 
+	{
+		web.pageUp(true);
         }
     }
 
