@@ -32,6 +32,9 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
+import android.content.res.Resources;
+import android.content.IntentFilter;
+import android.content.BroadcastReceiver;
 import android.database.ContentObserver;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -256,6 +259,34 @@ public class Controller
         mSystemAllowGeolocationOrigins.start();
 
         openIconDatabase();
+        registerReceiver();
+    }
+
+    BroadcastReceiver mReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if(intent.getAction().equals(DownloadManager.AUTH_DOWNLOAD_REQUEST_ACTION)) {
+                String host = intent.getStringExtra("host");
+                String realm = intent.getStringExtra("realm");
+                String[] credentials = getCurrentTopWebView().getHttpAuthUsernamePassword(host, realm);
+                String user = null;
+                String pwd = null;
+                if(credentials != null && credentials.length == 2) {
+                    user = credentials[0];
+                    pwd = credentials[1];
+                }
+                intent.setAction(DownloadManager.AUTH_DOWNLOAD_RETURN_ACTION);
+                intent.putExtra("username", user);
+                intent.putExtra("password", pwd);
+                mActivity.sendBroadcast(intent, DownloadManager.AUTH_DOWNLOAD_PERMISSION);
+            }
+        }
+    };
+
+    private void registerReceiver() {
+        IntentFilter filter = new IntentFilter();
+        filter.addAction(DownloadManager.AUTH_DOWNLOAD_REQUEST_ACTION);
+        mActivity.registerReceiver(mReceiver, filter, DownloadManager.AUTH_DOWNLOAD_PERMISSION, null);
     }
 
     @Override
@@ -750,6 +781,7 @@ public class Controller
 
     @Override
     public void onDestroy() {
+        mActivity.unregisterReceiver(mReceiver);
         if (mUploadHandler != null && !mUploadHandler.handled()) {
             mUploadHandler.onResult(Activity.RESULT_CANCELED, null);
             mUploadHandler = null;
