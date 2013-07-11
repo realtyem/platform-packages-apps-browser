@@ -135,8 +135,8 @@ public class PieControl implements PieMenu.PieController, OnClickListener {
 
     protected void populateMenu() {
         mBack = makeItem(R.drawable.ic_back_holo_dark, 1);
-        mJumpTop = makeItem(R.drawable.ic_back_holo_dark, 1);
-        mJumpBottom = makeItem(R.drawable.ic_forward_holo_dark, 1);
+        mJumpTop = makeItem(R.drawable.ic_up_holo_dark, 1);
+        mJumpBottom = makeItem(R.drawable.ic_down_holo_dark, 1);
         mUrl = makeItem(R.drawable.ic_web_holo_dark, 1);
         mBookmarks = makeItem(R.drawable.ic_bookmarks_holo_dark, 1);
         mHistory = makeItem(R.drawable.ic_history_holo_dark, 1);
