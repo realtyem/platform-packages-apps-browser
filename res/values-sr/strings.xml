@@ -31,6 +31,7 @@
     <string name="username" msgid="5057566336518215922">"Име"</string>
     <string name="password" msgid="1177138552305184404">"Лозинка"</string>
     <string name="action" msgid="183105774472071343">"Пријави ме"</string>
+    <string name="bookmarks_add_page" msgid="3093456701072617702">"Чување обележивача"</string>
     <string name="bookmarks_search" msgid="5229596268214362873">"Прегледач"</string>
     <string name="cancel" msgid="3017274947407233702">"Откажи"</string>
     <string name="ok" msgid="1509280796718850364">"Потврди"</string>
@@ -152,21 +153,21 @@
     <item msgid="6569304572171444894">"Друго"</item>
   </string-array>
     <string name="pref_content_autofit" msgid="8260474534053660809">"Аутоматски уклопи странице"</string>
-    <string name="pref_content_autofit_summary" msgid="324810555822572112">"Подешавање формата веб страница тако да се уклопе на екран"</string>
+    <string name="pref_content_autofit_summary" msgid="324810555822572112">"Подешавање формата веб-страница тако да се уклопе на екран"</string>
     <string name="pref_general_title" msgid="1946872771219249323">"Општa"</string>
     <string name="pref_general_sync_title" msgid="3138637035975860324">"Синхронизација"</string>
     <string name="pref_general_autofill_title" msgid="547881256865816858">"Аутоматско попуњавање"</string>
     <string name="pref_autofill_enabled" msgid="1015751713312396713">"Аутоматско попуњавање обрасца"</string>
-    <string name="pref_autofill_enabled_summary" msgid="7659954073892471496">"Попуњавање веб образаца једним додиром"</string>
+    <string name="pref_autofill_enabled_summary" msgid="7659954073892471496">"Попуњавање веб-образаца једним додиром"</string>
     <string name="pref_autofill_profile_editor" msgid="8934844472922113166">"Текст за аутоматско попуњавање"</string>
-    <string name="pref_autofill_profile_editor_summary" msgid="4864447251676856190">"Подешавање текста за аутоматско попуњавање веб образаца"</string>
+    <string name="pref_autofill_profile_editor_summary" msgid="4864447251676856190">"Подешавање текста за аутоматско попуњавање веб-образаца"</string>
     <string name="pref_autologin_title" msgid="4421187193809267096">"Аутоматско Google пријављивање"</string>
     <string name="pref_autologin_progress" msgid="8333244467048833461">"Пријављивање на Google сајтове помоћу <xliff:g id="ID_1">%s</xliff:g>"</string>
     <string name="autologin_bar_text" msgid="3684581827167173371">"Пријављивање као"</string>
     <string name="autologin_bar_login_text" msgid="3336615320510851879">"Пријави ме"</string>
     <string name="autologin_bar_hide_text" msgid="3629355974385859580">"Сакриј"</string>
     <string name="autologin_bar_error" msgid="7470001207395920811">"Пријављивање није могуће."</string>
-    <string name="autofill_profile_editor_heading" msgid="4798644544927738078">"Унесите текст који желите да користите за аутоматско попуњавање веб образаца."</string>
+    <string name="autofill_profile_editor_heading" msgid="4798644544927738078">"Унесите текст који желите да користите за аутоматско попуњавање веб-образаца."</string>
     <string name="autofill_profile_editor_name" msgid="8566130291459685955">"Пуно име:"</string>
     <string name="autofill_profile_editor_email_address" msgid="7967585896612797173">"Е-пошта:"</string>
     <string name="autofill_profile_editor_company_name" msgid="2813443159949210417">"Назив предузећа:"</string>
@@ -184,7 +185,7 @@
     <string name="autofill_profile_successful_save" msgid="5691459703493331983">"Текст за аутоматско попуњавање је сачуван."</string>
     <string name="autofill_profile_successful_delete" msgid="1790262652460723127">"Текст за аутоматско попуњавање је избрисан."</string>
     <string name="autofill_profile_editor_delete_profile" msgid="3098369314558164153">"Избриши"</string>
-    <string name="autofill_setup_dialog_message" msgid="7123905786076456503">"Прегледач може аутоматски да попуњава веб обрасце попут овог. Желите ли да подесите текст за аутоматско попуњавање?"</string>
+    <string name="autofill_setup_dialog_message" msgid="7123905786076456503">"Прегледач може аутоматски да попуњава веб-обрасце попут овог. Желите ли да подесите текст за аутоматско попуњавање?"</string>
     <string name="autofill_setup_dialog_negative_toast" msgid="3288881675232206984">"Увек можете да подесите текст за аутоматско попуњавање на екрану Прегледач &gt; Подешавања &gt; Опште."</string>
     <string name="disable_autofill" msgid="8305901059849400354">"Онемогући аутоматско попуњавање"</string>
     <string name="pref_privacy_security_title" msgid="3480313968942160914">"Приватност и безбедност"</string>
@@ -284,14 +285,14 @@
   </string-array>
     <string name="pref_data_preload_summary" msgid="3809168910751382727">"Дозволите да прегледач у позадини унапред учита јако поуздане резултате претраге"</string>
     <string name="pref_data_preload_dialogtitle" msgid="8421297746110796536">"Учитавање резултата претраге унапред"</string>
-    <string name="pref_link_prefetch_title" msgid="4123685219009241072">"Учитавање веб странице унапред"</string>
+    <string name="pref_link_prefetch_title" msgid="4123685219009241072">"Учитавање веб-странице унапред"</string>
   <string-array name="pref_link_prefetch_choices">
     <item msgid="4889781230398008031">"Никада"</item>
     <item msgid="1908465963242077428">"Само преко Wi-Fi-ја"</item>
     <item msgid="7647277566998527142">"Увек"</item>
   </string-array>
-    <string name="pref_link_prefetch_summary" msgid="6558181497993206817">"Дозволи да прегледач у позадини унапред учитава повезане веб странице"</string>
-    <string name="pref_link_prefetch_dialogtitle" msgid="3804646141622839765">"Учитавање веб странице унапред"</string>
+    <string name="pref_link_prefetch_summary" msgid="6558181497993206817">"Дозволи да прегледач у позадини унапред учитава повезане веб-странице"</string>
+    <string name="pref_link_prefetch_dialogtitle" msgid="3804646141622839765">"Учитавање веб-странице унапред"</string>
     <string name="browserFrameNetworkErrorLabel" msgid="8102515020625680714">"Проблем са везом"</string>
     <string name="browserFrameFileErrorLabel" msgid="4703792279852977350">"Проблем са датотеком"</string>
     <string name="browserFrameFormResubmitLabel" msgid="2385512101948178841"></string>
@@ -306,7 +307,7 @@
     <string name="add_bookmark_short" msgid="3783984330998103735">"Додај"</string>
     <string name="search_hint" msgid="4647356319916631820">"Претражите или унесите URL адресу"</string>
     <string name="search_button_text" msgid="5235226933877634410">"Иди"</string>
-    <string name="search_settings_description" msgid="1422401062529014107">"Обележивачи и веб историја"</string>
+    <string name="search_settings_description" msgid="1422401062529014107">"Обележивачи и веб-историја"</string>
     <string name="popup_window_attempt" msgid="31565781154067629">"Желите ли да дозволите овом сајту да отвори искачући прозор?"</string>
     <string name="allow" msgid="1157313689171991335">"Дозволи"</string>
     <string name="block" msgid="9172175889884707800">"Блокирај"</string>
