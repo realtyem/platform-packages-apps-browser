@@ -300,6 +300,7 @@
     <string name="pref_content_javascript">Enable JavaScript</string>
     <!-- Settings label -->
     <string name="pref_content_open_in_background">Open in background</string>
+    <string name="pref_content_double_tap_mode">Double Tap Contextual Mode</string>
     <!-- Settings label -->
     <string name="pref_content_plugins">Enable plug-ins</string>
     <!-- Plugin options -->
@@ -315,6 +316,7 @@
     </string-array>
     <!-- Settings summary [CHAR LIMIT=50]-->
     <string name="pref_content_open_in_background_summary">Open new tabs behind the current tab</string>
+    <string name="pref_content_double_tap_mode_summary">Double Tap on a known element will open in a background Tab(link), or save(Image), otherwise zoom</string>
     <!-- Settings label [CHAR LIMIT=50] -->
     <string name="pref_content_homepage">Set homepage</string>
     <!-- Settings label -->

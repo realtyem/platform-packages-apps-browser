@@ -1308,6 +1308,30 @@ public class Controller
         return true;
     }
 
+ 
+    private boolean doubleTapAction(String action, int elementType, String uri, WebView webview) {
+        boolean actionDone = true;
+
+        switch(elementType) {
+            case WebView.HitTestResult.IMAGE_TYPE:
+                DownloadHandler.onDownloadStartNoStream(mActivity, uri, webview.getSettings().getUserAgentString(), null, null, null,  webview.isPrivateBrowsingEnabled());
+            break;
+            case WebView.HitTestResult.SRC_ANCHOR_TYPE:
+                final Tab parent = mTabControl.getCurrentTab();
+                openTab(uri, parent, !mSettings.openInBackground(), true);
+            break;
+            case WebView.HitTestResult.SRC_IMAGE_ANCHOR_TYPE:
+                final HashMap<String, WebView> hrefMap = new HashMap<String, WebView>();
+                hrefMap.put("webview", webview);
+                final Message msg = mHandler.obtainMessage( FOCUS_NODE_HREF, R.id.open_newtab_context_menu_id, 0, hrefMap);
+                webview.requestFocusNodeHref(msg);
+            break;
+            default: actionDone = false;
+        } 
+
+        return actionDone;
+    }
+
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v,
             ContextMenuInfo menuInfo) {
@@ -1334,6 +1358,10 @@ public class Controller
             return;
         }
 
+        final String extra = result.getExtra();
+        String action = result.getAction();
+        if(action != null && action.equals("open") && doubleTapAction(action, type, extra, webview))  return;
+
         // Note, http://b/issue?id=1106666 is requesting that
         // an inflated menu can be used again. This is not available
         // yet, so inflate each time (yuk!)
@@ -1341,7 +1369,6 @@ public class Controller
         inflater.inflate(R.menu.browsercontext, menu);
 
         // Show the correct menu group
-        final String extra = result.getExtra();
         if (extra == null) return;
         menu.setGroupVisible(R.id.PHONE_MENU,
                 type == WebView.HitTestResult.PHONE_TYPE);

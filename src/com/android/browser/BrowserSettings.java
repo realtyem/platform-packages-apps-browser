@@ -286,6 +286,7 @@ public class BrowserSettings implements OnSharedPreferenceChangeListener,
         settingsClassic.setDoubleTapZoom(getDoubleTapZoom());
         settingsClassic.setAutoFillEnabled(isAutofillEnabled());
         settingsClassic.setAutoFillProfile(getAutoFillProfile());
+        settingsClassic.setDoubleTapMode(getDoubleTapMode());
 
         boolean useInverted = useInvertedRendering();
         settingsClassic.setProperty(WebViewProperties.gfxInvertedScreen,
@@ -673,6 +674,10 @@ public class BrowserSettings implements OnSharedPreferenceChangeListener,
         return mPrefs.getBoolean(PREF_OPEN_IN_BACKGROUND, false);
     }
 
+    public boolean getDoubleTapMode() {
+        return mPrefs.getBoolean(PREF_DOUBLE_TAP_MODE, true);
+    }
+ 
     public boolean enableJavascript() {
         return mPrefs.getBoolean(PREF_ENABLE_JAVASCRIPT, true);
     }
