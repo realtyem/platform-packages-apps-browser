@@ -480,7 +480,8 @@ public class Controller
                         String url = (String) msg.getData().get("url");
                         String title = (String) msg.getData().get("title");
                         String src = (String) msg.getData().get("src");
-                        if (url == "") url = src; // use image if no anchor
+Log.d("TTTim", "url="+ url + " src="+src);
+                        if (url.equals("")) url = src; // use image if no anchor
                         if (TextUtils.isEmpty(url)) {
                             break;
                         }
@@ -1291,6 +1292,7 @@ public class Controller
 
         // Show the correct menu group
         final String extra = result.getExtra();
+        Log.e(LOGTAG +"TTTIM", extra); 
         if (extra == null) return;
         menu.setGroupVisible(R.id.PHONE_MENU,
                 type == WebView.HitTestResult.PHONE_TYPE);
