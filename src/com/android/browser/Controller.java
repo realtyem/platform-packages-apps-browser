@@ -481,7 +481,7 @@ public class Controller
                         String title = (String) msg.getData().get("title");
                         String src = (String) msg.getData().get("src");
 Log.d("TTTim", "url="+ url + " src="+src);
-                        if (url.equals("")) url = src; // use image if no anchor
+                        if (url == null || url.equals("")) url = src; // use image if no anchor
                         if (TextUtils.isEmpty(url)) {
                             break;
                         }
