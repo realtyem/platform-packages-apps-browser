@@ -203,7 +203,7 @@ public abstract class BaseUi implements UI {
     @Override
     public void setUseQuickControls(boolean useQuickControls) {
         mUseQuickControls = useQuickControls;
-        mTitleBar.setUseQuickControls(mUseQuickControls);
+        mTitleBar.setUseQuickControls(false);
         if (useQuickControls) {
             mPieControl = new PieControl(mActivity, mUiController, this);
             mPieControl.attachToContainer(mContentView);
@@ -284,7 +284,7 @@ public abstract class BaseUi implements UI {
             if (mUseQuickControls) {
                 mPieControl.forceToTop(mContentView);
                 web.setTitleBar(null);
-                mTitleBar.hide();
+                //mTitleBar.hide();
             } else {
                 web.setTitleBar(mTitleBar);
                 mTitleBar.onScrollChanged();
@@ -302,6 +302,7 @@ public abstract class BaseUi implements UI {
 
     protected void updateUrlBarAutoShowManagerTarget() {
         WebView web = mActiveTab != null ? mActiveTab.getWebView() : null;
+            mUrlBarAutoShowManager.setTarget((BrowserWebView) web);
         if (!mUseQuickControls && web instanceof BrowserWebView) {
             mUrlBarAutoShowManager.setTarget((BrowserWebView) web);
         } else {
