@@ -165,7 +165,7 @@ public class PieControl implements PieMenu.PieController, OnClickListener {
         stack.setAdapter(mTabAdapter);
         mShowTabs.setPieView(stack);
         setClickListener(this, mBack, mRefresh, mForward, mUrl, mFind, mInfo,
-                mShare, mBookmarks, mNewTab, /*mIncognito,*/ mClose, mHistory,
+                mShare, mBookmarks, mNewTab, mIncognito, mClose, mHistory,
                 mAddBookmark, mOptions, mRDS, mJumpTop, mJumpBottom);
         if (!BrowserActivity.isTablet(mActivity)) {
             mShowTabs.getView().setOnClickListener(this);
@@ -186,9 +186,8 @@ public class PieControl implements PieMenu.PieController, OnClickListener {
 
         mPie.addItem(mShowTabs);
         mShowTabs.addItem(makeFiller());
+        mShowTabs.addItem(mIncognito);
         mShowTabs.addItem(mNewTab);
-//        mShowTabs.addItem(mIncognito);
-        mShowTabs.addItem(makeFiller());
         mShowTabs.addItem(makeFiller());
 
         mPie.addItem(mClose);
