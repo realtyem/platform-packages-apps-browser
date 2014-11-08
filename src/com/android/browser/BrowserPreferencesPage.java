@@ -26,6 +26,9 @@ import com.android.browser.preferences.BandwidthPreferencesFragment;
 import com.android.browser.preferences.DebugPreferencesFragment;
 
 import java.util.List;
+import java.util.Set;
+import java.util.HashSet;
+import java.util.Arrays;
 
 public class BrowserPreferencesPage extends PreferenceActivity {
 
