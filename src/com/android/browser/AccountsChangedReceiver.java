@@ -62,7 +62,7 @@ public class AccountsChangedReceiver extends BroadcastReceiver {
                     delete(cr, name, type);
                 }
             }
-            cr.update(Accounts.CONTENT_URI, null, null, null);
+            //cr.update(Accounts.CONTENT_URI, null, null, null); cannot pass null value to cr
             c.close();
         }
 
